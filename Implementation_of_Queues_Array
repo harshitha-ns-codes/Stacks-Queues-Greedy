@@ -1,0 +1,39 @@
+int q[size] = 10 , curSize = 0 , start = end = -1;
+push(x)
+{
+  if(curSize == q[size]) return 0;
+  if(curSize == 0){
+    start = end = 0;
+}
+else
+{
+  end = (end+1)%size;
+  q[end] = x;
+  curSize += 1;
+}
+}
+
+pop()
+{
+  if(curSize == 0) return 0;
+  el = q[start];
+  if(curSize == 1){
+    start = end = -1;
+}
+  else
+    start = (start+1)%size;
+    curSize _1;
+    return el;
+}
+
+top()
+{
+  if(curSize == 0) return 0;
+  return q[start];
+}
+
+size()
+{
+  return curSize;
+}
+
