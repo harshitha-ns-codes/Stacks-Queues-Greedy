@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+    string PrefixToInfix(string s)
+    {
+
+        stack<string> st;
+        for(int i = n-1; i < s.length(); i--)
+        {
+            // Operand
+            if((s[i] >= 'A' && s[i] <= 'Z') ||
+               (s[i] >= 'a' && s[i] <= 'z') ||
+               (s[i] >= '0' && s[i] <= '9'))
+            {
+                st.push(s[i]);
+            }
+
+            // Opening bracket
+            else 
+            {
+                t1 = st.top(); st.pop();
+                t2 = st.top(); st.pop();
+                con = '(' + t1 + s[i] + t2 + ')';
+                st.push(con);
+    }
+    return st.top();
+};
+
+int main()
+{
+    Solution obj;
+
+    string s = "*+PQ-MN";
+
+    cout << obj.PrefixToInfix(s);
+
+    return 0;
+}
