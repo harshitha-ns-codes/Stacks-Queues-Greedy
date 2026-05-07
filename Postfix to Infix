@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+    string PostfixToInfix(string s)
+    {
+
+        stack<string> st;
+        for(int i = 0; i < s.length(); i++)
+        {
+            // Operand
+            if((s[i] >= 'A' && s[i] <= 'Z') ||
+               (s[i] >= 'a' && s[i] <= 'z') ||
+               (s[i] >= '0' && s[i] <= '9'))
+            {
+                st.push(s[i]);
+            }
+
+            // Opening bracket
+            else 
+            {
+                t1 = st.top(); st.pop();
+                t2 = st.top(); st.pop();
+                con = '(' + t2 + s[i] + t1 + ')';
+                st.push(con);
+    }
+};
+
+int main()
+{
+    Solution obj;
+
+    string s = "AB - DE + F * / ";
+
+    cout << obj.infixToPrefix(s);
+
+    return 0;
+}
