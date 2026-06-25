@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int maxPlatforms(vector<int>&arrival , vector<int>&departure , int n)
+{
+    sort(arrival.begin(),arrival.end());
+    sort(departure.begin(),departure.end());
+
+    int platforms=0;
+    int maxPlatforms=0;
+    int i=0;
+    int j=0;
+
+    while(i < n && j<n)
+    {
+        if(arrival[i] <= departure[j])
+        {
+            platforms++;
+            i++;
+        }
+        else
+        {
+            platforms--;
+            j++;
+        }
+        maxPlatforms = max(maxPlatforms,platforms);
+    }
+    return maxPlatforms;
+}
